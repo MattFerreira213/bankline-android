@@ -12,8 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Banklineandroid">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.Statement.BankStatementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:exported="true"
+            android:parentActivityName=".ui.welcome.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
