@@ -7,7 +7,42 @@
     android:layout_height="match_parent"
     tools:context=".ui.welcome.WelcomeActivity">
 
+    <TextView
+        android:id="@+id/txtWelcome"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:text="@string/txt_welcome"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/edtNumberAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="@id/txtWelcome"
+        app:layout_constraintStart_toStartOf="@id/txtWelcome"
+        app:layout_constraintTop_toBottomOf="@id/txtWelcome" />
+
+    <Button
+        android:id="@+id/btnContinue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/margin_default"
+        android:layout_marginTop="@dimen/margin_default"
+        android:layout_marginEnd="@dimen/margin_default"
+        android:text="@string/txt_continue"
+        app:layout_constraintEnd_toEndOf="@id/edtNumberAccount"
+        app:layout_constraintStart_toStartOf="@id/edtNumberAccount"
+        app:layout_constraintTop_toBottomOf="@id/edtNumberAccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
