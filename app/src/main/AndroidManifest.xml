@@ -13,11 +13,12 @@
         android:theme="@style/Theme.Banklineandroid">
         <activity
             android:name=".ui.Statement.BankStatementActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ui.welcome.WelcomeActivity"/>
         <activity
             android:name=".ui.welcome.WelcomeActivity"
             android:exported="true"
-            android:parentActivityName=".ui.welcome.WelcomeActivity">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
