@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">bankline-android</string>
+    <string name="app_name" translatable="false">MidasBank</string>
     <string name="txt_welcome">Hello, welcome to MidasBK! Enter an Account Holder number account to view you bank statement:</string>
     <string name="txt_continue">Continue</string>
 </resources>
