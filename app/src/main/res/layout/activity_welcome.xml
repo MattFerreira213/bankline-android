@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/txtWelcome"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="@dimen/margin_default"
@@ -19,18 +19,25 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edtNumberAccount"
-        android:layout_width="match_parent"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/txtNumberAccount"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_default"
         android:layout_marginTop="@dimen/margin_default"
         android:layout_marginEnd="@dimen/margin_default"
-        android:ems="10"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="@id/txtWelcome"
-        app:layout_constraintStart_toStartOf="@id/txtWelcome"
-        app:layout_constraintTop_toBottomOf="@id/txtWelcome" />
+        android:hint="@string/txt_account_holder_id"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtWelcome">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/edtNumberAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/btnContinue"
@@ -40,9 +47,9 @@
         android:layout_marginTop="@dimen/margin_default"
         android:layout_marginEnd="@dimen/margin_default"
         android:text="@string/txt_continue"
-        app:layout_constraintEnd_toEndOf="@id/edtNumberAccount"
-        app:layout_constraintStart_toStartOf="@id/edtNumberAccount"
-        app:layout_constraintTop_toBottomOf="@id/edtNumberAccount" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txtNumberAccount" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
