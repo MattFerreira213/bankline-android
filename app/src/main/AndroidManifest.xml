@@ -10,10 +10,15 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Banklineandroid">
+        android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name=".ui.Statement.BankStatementActivity"
+            android:exported="false"
+            android:parentActivityName=".ui.welcome.WelcomeActivity"/>
+        <activity
+            android:name=".ui.welcome.WelcomeActivity"
+            android:exported="true"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
