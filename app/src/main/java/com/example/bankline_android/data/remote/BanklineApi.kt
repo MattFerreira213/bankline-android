@@ -6,6 +6,6 @@ import retrofit2.http.Path
 
 interface BanklineApi {
 
-    @GET("movimentações/{id}")
-    fun findBankStatement(@Path("id") accountHolderId: Int): List<Movimentacao>
+    @GET("movimentacoes/{id}")
+    suspend fun findBankStatement(@Path("id") accountHolderId: Int): List<Movimentacao>
 }

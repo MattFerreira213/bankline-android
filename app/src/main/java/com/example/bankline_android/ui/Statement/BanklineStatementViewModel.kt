@@ -1,4 +1,10 @@
 package com.example.bankline_android.ui.Statement
 
-class BanklineStatementViewModel {
+import androidx.lifecycle.ViewModel
+import com.example.bankline_android.data.BanklineRepository
+
+class BanklineStatementViewModel : ViewModel()  {
+
+   fun findBankStatement(accountHolderId: Int) =
+       BanklineRepository.findBankStatement(accountHolderId)
 }

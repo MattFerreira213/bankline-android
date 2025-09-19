@@ -1,13 +1,14 @@
 package com.example.bankline_android.ui.Statement
 
 import android.os.Bundle
-import android.util.Log
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.bankline_android.data.State
 import com.example.bankline_android.databinding.ActivityBankStatementBinding
 import com.example.bankline_android.domain.Correntista
-import com.example.bankline_android.domain.Movimentacao
-import com.example.bankline_android.domain.TipoMovimentacao
+import com.google.android.material.snackbar.Snackbar
+
 
 class BankStatementActivity : AppCompatActivity() {
 
@@ -19,6 +20,8 @@ class BankStatementActivity : AppCompatActivity() {
     private val binding by lazy {
         ActivityBankStatementBinding.inflate(layoutInflater)
     }
+
+    private val viewModel by viewModels<BanklineStatementViewModel>()
 
     private val accountHolder by lazy {
         intent.getParcelableExtra<Correntista>(EXTRA_ACCOUNT_HOLDER)
@@ -35,10 +38,28 @@ class BankStatementActivity : AppCompatActivity() {
     }
 
     private fun findBankStatement() {
-        val dataSet = ArrayList<Movimentacao>()
-        dataSet.add(Movimentacao(1, "05/03/2020 20:15:25","Teste", 5000.0, TipoMovimentacao.RECEITA,1))
-        dataSet.add(Movimentacao(1, "05/03/2020 21:15:25","Teste", 250.0, TipoMovimentacao.DESPESA,1))
-        binding.rvBankStatement.adapter = BankStatementAdapter(dataSet)
+        viewModel.findBankStatement(accountHolder.id).observe(this) { state ->
+            when (state) {
+                is State.Success -> {
+                    binding.rvBankStatement.adapter = state.data?.let { BankStatementAdapter(it) }
+                    binding.srBankStatement.isRefreshing = false
+                }
 
+                is State.Error -> {
+                    state.message?.let {
+                        Snackbar.make(
+                            binding.rvBankStatement,
+                            it,
+                            Snackbar.LENGTH_LONG
+                        ).show()
+                    }
+                    binding.srBankStatement.isRefreshing = false
+                }
+
+                State.Wait -> {
+                    binding.srBankStatement.isRefreshing = true
+                }
+            }
+        }
     }
 }
