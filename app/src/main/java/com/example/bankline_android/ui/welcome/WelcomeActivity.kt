@@ -20,8 +20,9 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            if (validateAccountHolder(binding.edtNumberAccount.text.toString())) {
+            val validate = validateAccountHolder(binding.edtNumberAccount.text.toString())
 
+            if (validate) {
                 val accountHolderId = binding.edtNumberAccount.text.toString().toInt()
                 val accountHolder = Correntista(accountHolderId)
 
