@@ -19,14 +19,18 @@ class WelcomeActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnContinue.setOnClickListener {
-            val accountHolderId = binding.edtNumberAccount.text.toString().toInt()
-            val accountHolder = Correntista(accountHolderId)
 
-            if (validateAccountHolderIsNotEmpty(accountHolderId.toString())) {
+
+            if (validateAccountHolderIsNotEmpty(binding.edtNumberAccount.text.toString())) {
+                val accountHolderId = binding.edtNumberAccount.text.toString().toInt()
+                val accountHolder = Correntista(accountHolderId)
+
+
                 val intent = Intent(this, BankStatementActivity::class.java).apply {
                     putExtra(BankStatementActivity.EXTRA_ACCOUNT_HOLDER, accountHolder)
                 }
                 startActivity(intent)
+
             }
 
         }
@@ -39,17 +43,5 @@ class WelcomeActivity : AppCompatActivity() {
             return false
         }
         return true
-    }
-
-    private fun validateAccountHolderExist(
-        accountHolderNumberValidator: String,
-        accountHolderIdApi: String
-    ): Boolean {
-        if (accountHolderNumberValidator != accountHolderIdApi) {
-            binding.edtNumberAccount.error =
-                "O campo Account Holder está incorreto. Por favor informe o número da conta correto."
-            return true
-        }
-        return false
     }
 }
