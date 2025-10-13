@@ -38,7 +38,6 @@ class BankStatementActivity : AppCompatActivity() {
         binding.srBankStatement.setOnRefreshListener {
             findBankStatement()
         }
-
     }
 
     private fun findBankStatement() {
